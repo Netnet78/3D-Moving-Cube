@@ -11,10 +11,10 @@
 4. Then you need to install the *required* **dependencies**:
   - Copy and paste this to your terminal: `pip install -r requirement.txt`
 5. Run the command to use your virtual environment:
-  - On Windows:\
+  - On Windows:
       - `myenv\Scripts\activate`
     
-  - On macOS/Linux:\
+  - On macOS/Linux:
       - `source myenv/bin/activate`
 6. Finally if you want to run the code just do the following:
   - In your terminal copy or write: `python main.py`
