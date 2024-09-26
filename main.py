@@ -2,7 +2,6 @@
 # Import necessary libraries
 import pygame
 import numpy as np
-import keyboard
 from math import *
 
 # Constants
@@ -62,6 +61,8 @@ def connect_points(points):
 # Main game loop
 clock = pygame.time.Clock()
 running = True
+
+# Auto spin variables
 auto_spin_u = False
 auto_spin_d = False
 auto_spin_l = False
@@ -69,41 +70,41 @@ auto_spin_r = False
 while running:
     clock.tick(60)
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
+        match event:
+            case pygame.event.Event(type=pygame.QUIT):
                 running = False
-            elif event.key == pygame.K_UP:
-                angle_x -= 10
-            elif event.key == pygame.K_DOWN:
-                angle_x += 10
-            elif event.key == pygame.K_LEFT:
-                angle_y -= 10
-            elif event.key == pygame.K_RIGHT:
-                angle_y += 10
-            elif event.key == pygame.K_u:
-                auto_spin_u = True
-                auto_spin_d = False
-            elif event.key == pygame.K_d:
-                auto_spin_d = True
-                auto_spin_u = False
-            elif event.key == pygame.K_l:
-                auto_spin_l = True
-                auto_spin_r = False
-            elif event.key == pygame.K_r:
-                auto_spin_r = True
-                auto_spin_l = False
-            elif event.key == pygame.K_s:
-                auto_spin_l = False
-                auto_spin_d = False
-                auto_spin_r = False
-                auto_spin_u = False
-        elif event.type == pygame.MOUSEMOTION:
-            if event.buttons[0]:
+            case pygame.event.Event(type=pygame.KEYDOWN, key=key):
+                match key:
+                    case pygame.K_ESCAPE:
+                        running = False
+                    case pygame.K_UP:
+                        angle_x -= 10
+                    case pygame.K_DOWN:
+                        angle_x += 10
+                    case pygame.K_LEFT:
+                        angle_y -= 10
+                    case pygame.K_RIGHT:
+                        angle_y += 10
+                    case pygame.K_u:
+                        auto_spin_u = True
+                        auto_spin_d = False
+                    case pygame.K_d:
+                        auto_spin_d = True
+                        auto_spin_u = False
+                    case pygame.K_l:
+                        auto_spin_l = True
+                        auto_spin_r = False
+                    case pygame.K_r:
+                        auto_spin_r = True
+                        auto_spin_l = False
+                    case pygame.K_s:
+                        auto_spin_l = False
+                        auto_spin_d = False
+                        auto_spin_r = False
+                        auto_spin_u = False
+            case pygame.event.Event(type=pygame.MOUSEMOTION, buttons=(1, _, _)):
                 translate_x += event.rel[0]
                 translate_y += event.rel[1]
-
     screen.fill(WHITE)
 
     # Auto spin
