@@ -4,7 +4,7 @@
 2. Then clone this repository into your working directory
   - `git clone "forked repository url"`
 
-    - (Note) If you don't know how to contribute then you can check out this awesome repository: [first-contributions](https://github.com/firstcontributions/first-contributions)
+    - (Note) If you don't know how to contribute then you can check out this awesome repository: <a href="https://github.com/firstcontributions/first-contributions" target="_blank">Visit first-contributions</a>
 3. Next, we are going to need a virtual environment, if you don't have one then you can do as the following:
   - Just copy and paste this command into the terminal:
     - For virtual environment (.venv): `python -m venv myenv`
